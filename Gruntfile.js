@@ -1,4 +1,3 @@
-"use strict";
 
 module.exports = function(grunt) {
 
@@ -13,7 +12,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: 'client/js/*.js',
-        dest: 'build/client/js/*.min.js'
+        dest: 'build/js/*.min.js'
       }
     },
     jshint: {
@@ -32,27 +31,27 @@ module.exports = function(grunt) {
           trace: true
         },
         files: {
-          "build/styles/*.css": "client/styles/*.scss"
+          "build/styles/style.css": "client/styles/*.scss"
         }
       }
     },
-    mincss: {
+    cssmin: {
       build: {
         files: {
-          "build/styles/*.css": "build/styles/*.css"
+          "build/styles/style.min.css": "build/styles/*.css"
         }
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasts('grunt-contrib-cssmin');
-  grunt.loadNpmTasts('grunt-contrib-htmlmin');
-  grunt.loadNpmTasts('grunt-contrib-sass');
-  grunt.loadNpmTasts('grunt-contrib-jshint');
-  grunt.loadNpmTasts('grunt-contrib-concat');
-  grunt.loadNpmTasts('grunt-contrib-watch');
-  grunt.loadNpmTasts('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
 
   grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'sass', 'cssmin']);
